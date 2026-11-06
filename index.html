@@ -1,1137 +1,824 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W/S Small Finance and Services | Small Saving, Smart Loan</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W/S Small Finance and Services | Channel Partner of Finance Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #081120;
+      --bg-card: #0e1e38;
+      --bg-card-light: #162a4d;
+      --gold-primary: #f5b027;
+      --gold-secondary: #df971a;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(245, 176, 39, 0.25);
+      --green-wa: #25D366;
+    }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            950: '#060d17',
-                            900: '#0a1424',
-                            850: '#0f1d33',
-                            800: '#142745',
-                            700: '#1d365f',
-                        },
-                        gold: {
-                            300: '#f6d37a',
-                            400: '#eec153',
-                            500: '#dfa62c',
-                            600: '#c58a1d',
-                            700: '#9b6811',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        display: ['"Cinzel"', 'serif'],
-                    },
-                    animation: {
-                        'float-slow': 'float 6s ease-in-out infinite',
-                        'float-reverse': 'floatRev 7s ease-in-out infinite',
-                        'float-delay': 'float 5s ease-in-out 2s infinite',
-                        'pulse-glow': 'pulseGlow 2.5s infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-                            '50%': { transform: 'translateY(-14px) rotate(1deg)' },
-                        },
-                        floatRev: {
-                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-                            '50%': { transform: 'translateY(12px) rotate(-1.5deg)' },
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { boxShadow: '0 0 15px rgba(223, 166, 44, 0.2)' },
-                            '50%': { boxShadow: '0 0 30px rgba(223, 166, 44, 0.45)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a1424;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #c58a1d;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #dfa62c;
-        }
-        /* Glassmorphism gradient backgrounds */
-        .glass-card {
-            background: linear-gradient(135deg, rgba(20, 39, 69, 0.65) 0%, rgba(10, 20, 36, 0.85) 100%);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(223, 166, 44, 0.22);
-        }
-        .glass-card-hover {
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glass-card-hover:hover {
-            transform: translateY(-5px);
-            border-color: rgba(223, 166, 44, 0.65);
-            box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5), 0 0 25px rgba(223, 166, 44, 0.2);
-        }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #fceda2 0%, #dfa62c 50%, #b87c14 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .gold-border-gradient {
-            border-image: linear-gradient(to right, #dfa62c, #f6d37a, #dfa62c) 1;
-        }
-        .bg-grid-pattern {
-            background-size: 32px 32px;
-            background-image: 
-                linear-gradient(to right, rgba(223, 166, 44, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(223, 166, 44, 0.05) 1px, transparent 1px);
-        }
-    </style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Top Nav */
+    header {
+      background: rgba(8, 17, 32, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: #081120;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(245, 176, 39, 0.35);
+    }
+
+    .brand-text h1 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .brand-text p {
+      font-size: 11px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-btn {
+      background: var(--bg-card-light);
+      border: 1px solid var(--gold-primary);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      background: var(--gold-primary);
+      color: #081120;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 50px 20px 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .tagline-badge {
+      display: inline-block;
+      background: rgba(245, 176, 39, 0.12);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-primary);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h2 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .hero h2 span {
+      background: linear-gradient(90deg, #f5b027, #ffd875);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 650px;
+      margin: 0 auto 30px;
+    }
+
+    /* Floating Badges */
+    .floating-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 850px;
+      margin: 0 auto 40px;
+      padding: 0 10px;
+    }
+
+    .floating-tag {
+      background: var(--bg-card);
+      border: 1px solid rgba(245, 176, 39, 0.35);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .floating-tag i {
+      color: var(--gold-primary);
+    }
+
+    .floating-tag:nth-child(even) {
+      animation-delay: 2s;
+    }
+
+    .floating-tag:hover {
+      transform: translateY(-4px) scale(1.05);
+      border-color: var(--gold-primary);
+      box-shadow: 0 6px 20px rgba(245, 176, 39, 0.4);
+      background: var(--bg-card-light);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 850px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .card-title i {
+      color: var(--gold-primary);
+    }
+
+    /* Easy EMI Calculator */
+    .quick-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .chip {
+      background: var(--bg-card-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .chip.active, .chip:hover {
+      background: rgba(245, 176, 39, 0.2);
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+    }
+
+    .calc-row {
+      margin-bottom: 18px;
+    }
+
+    .calc-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .calc-label span.val {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--gold-primary);
+      cursor: pointer;
+      height: 6px;
+      border-radius: 4px;
+    }
+
+    .emi-result-box {
+      background: linear-gradient(135deg, rgba(245, 176, 39, 0.15), rgba(14, 30, 56, 0.8));
+      border: 1px solid var(--gold-primary);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .emi-result-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .emi-result-amount {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--gold-primary);
+      margin: 4px 0;
+    }
+
+    .emi-details-summary {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 10px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Lead Form */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      background: var(--bg-card-light);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 12px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--gold-primary);
+    }
+
+    .btn-whatsapp {
+      width: 100%;
+      background: #25D366;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-whatsapp:hover {
+      background: #20bd5a;
+      transform: translateY(-2px);
+    }
+
+    /* Direct Contacts Bar */
+    .direct-contacts {
+      max-width: 1050px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .contacts-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-item .icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(245, 176, 39, 0.12);
+      border: 1px solid var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-primary);
+      font-size: 18px;
+    }
+
+    .contact-info small {
+      display: block;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .contact-info a {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: var(--gold-primary);
+    }
+
+    /* Sticky Quick Actions */
+    .sticky-bar {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .quick-fab {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 22px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+    }
+
+    .quick-fab.whatsapp { background: var(--green-wa); }
+    .quick-fab.call { background: var(--gold-primary); color: #081120; }
+    .quick-fab:hover { transform: scale(1.1); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+  </style>
 </head>
-<body class="bg-navy-950 text-slate-100 font-sans antialiased selection:bg-gold-500 selection:text-navy-950 min-h-screen relative overflow-x-hidden">
+<body>
 
-    <!-- Top Contact Bar -->
-    <header class="bg-navy-900 border-b border-gold-500/20 text-xs sm:text-sm py-2 px-4 sticky top-0 z-50 backdrop-blur-md bg-opacity-95">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
-            <div class="flex items-center space-x-3 text-gold-400 font-medium tracking-wide text-center">
-                <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-gold-500/15 text-gold-300 border border-gold-500/30">
-                    <i class="fa-solid fa-handshake mr-1.5 text-xs"></i> OFFICIAL CHANNEL PARTNER
-                </span>
-                <span class="hidden sm:inline text-slate-300">|</span>
-                <span class="text-slate-300 italic">"Small Saving..... Smart Loan......"</span>
-            </div>
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">W/S</div>
+      <div class="brand-text">
+        <h1 data-i18n="company_name">W/S SMALL FINANCE & SERVICES</h1>
+        <p data-i18n="tagline_sub">Channel Partner of Finance Company</p>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="lang-btn" id="langSwitch" onclick="toggleLanguage()">
+        <i class="fa-solid fa-language"></i> <span id="langText">हिन्दी</span>
+      </button>
+    </div>
+  </header>
 
-            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-semibold">
-                <a href="tel:+919981829383" class="text-slate-200 hover:text-gold-300 transition-colors flex items-center">
-                    <i class="fa-solid fa-phone text-gold-500 mr-1.5"></i> +91 9981829383 <span class="text-slate-400 font-normal ml-1">(Waseem)</span>
-                </a>
-                <span class="text-slate-600">|</span>
-                <a href="tel:+918959059333" class="text-slate-200 hover:text-gold-300 transition-colors flex items-center">
-                    <i class="fa-solid fa-phone text-gold-500 mr-1.5"></i> +91 8959059333 <span class="text-slate-400 font-normal ml-1">(Anshul)</span>
-                </a>
-                <span class="hidden lg:inline text-slate-600">|</span>
-                <a href="mailto:wssfinanceservices@gmail.com" class="hidden lg:flex text-slate-200 hover:text-gold-300 transition-colors items-center">
-                    <i class="fa-solid fa-envelope text-gold-500 mr-1.5"></i> wssfinanceservices@gmail.com
-                </a>
-            </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="tagline-badge" data-i18n="badge_tagline">SMALL SAVING..... SMART LOAN......</div>
+    <h2 data-i18n="hero_title">Smart Loan Solutions <span>Made Fast & Simple</span></h2>
+    <p data-i18n="hero_desc">Compare, calculate, and apply for verified commercial, personal, gold, property, and vehicle loans with immediate advisory assistance.</p>
+  </section>
+
+  <!-- Interactive Floating Tags -->
+  <div class="floating-container">
+    <div class="floating-tag" onclick="selectLoanTag('Commercial Vehicle Loan')"><i class="fa-solid fa-truck"></i> <span data-i18n="loan_comm_vehicle">Commercial Vehicle Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Used Car Loan')"><i class="fa-solid fa-car-side"></i> <span data-i18n="loan_used_car">Used Car Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Doctor Business Loan')"><i class="fa-solid fa-user-doctor"></i> <span data-i18n="loan_doc_business">Business Loan for Doctor</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Construction Equipment')"><i class="fa-solid fa-trowel-bricks"></i> <span data-i18n="loan_const_equip">Construction Equipment Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Gold Loan')"><i class="fa-solid fa-coins"></i> <span data-i18n="loan_gold">Gold Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Home Loan')"><i class="fa-solid fa-house"></i> <span data-i18n="loan_home">Home Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Tractor Loan')"><i class="fa-solid fa-tractor"></i> <span data-i18n="loan_tractor">Tractor Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Personal Loan')"><i class="fa-solid fa-user"></i> <span data-i18n="loan_personal">Personal Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Loan Against Property')"><i class="fa-solid fa-building-columns"></i> <span data-i18n="loan_lap">Loan Against Property</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Car Loan')"><i class="fa-solid fa-car"></i> <span data-i18n="loan_car">Car Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Business Loan')"><i class="fa-solid fa-briefcase"></i> <span data-i18n="loan_business">Business Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Working Capital')"><i class="fa-solid fa-chart-line"></i> <span data-i18n="loan_working_capital">Working Capital Loan</span></div>
+  </div>
+
+  <!-- Main Calculator & Lead Application Section -->
+  <div class="container">
+    
+    <!-- Easy EMI Calculator Card -->
+    <div class="card">
+      <div class="card-title">
+        <i class="fa-solid fa-calculator"></i>
+        <span data-i18n="calc_title">Quick EMI Calculator</span>
+      </div>
+
+      <!-- Preset Quick Selection Chips -->
+      <div class="quick-chips">
+        <button type="button" class="chip active" onclick="setPreset(200000)">₹2 Lakh</button>
+        <button type="button" class="chip" onclick="setPreset(500000)">₹5 Lakh</button>
+        <button type="button" class="chip" onclick="setPreset(1000000)">₹10 Lakh</button>
+        <button type="button" class="chip" onclick="setPreset(2500000)">₹25 Lakh</button>
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-label">
+          <span data-i18n="calc_amt_label">Loan Amount</span>
+          <span class="val" id="amtDisplay">₹ 2,00,000</span>
         </div>
-    </header>
+        <input type="range" id="amountSlider" min="50000" max="5000000" step="25000" value="200000" oninput="calculateEMI()">
+      </div>
 
-    <!-- Main Navigation Bar -->
-    <nav class="bg-navy-950/80 border-b border-navy-800 backdrop-blur-lg sticky top-[37px] sm:top-[38px] z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-3 group">
-                <!-- Crest Logo Emblem -->
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-gold-400 via-gold-600 to-navy-900 p-0.5 shadow-lg group-hover:scale-105 transition-transform duration-300">
-                    <div class="w-full h-full bg-navy-900 rounded-[10px] flex items-center justify-center border border-gold-400/40">
-                        <span class="font-display font-black text-xl text-gold-400 tracking-tighter">W/S</span>
-                    </div>
-                </div>
-                <div>
-                    <h1 class="font-display font-black text-base sm:text-xl text-white tracking-wide uppercase leading-tight group-hover:text-gold-300 transition-colors">
-                        W/S Small Finance
-                    </h1>
-                    <p class="text-[10px] sm:text-xs text-gold-400 font-semibold tracking-wider uppercase">
-                        & Services Company
-                    </p>
-                </div>
-            </a>
-
-            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-300">
-                <a href="#services" class="hover:text-gold-400 transition">All Loans</a>
-                <a href="#about" class="hover:text-gold-400 transition">Why Choose Us</a>
-                <a href="#calculator" class="hover:text-gold-400 transition">EMI Calculator</a>
-                <a href="#contact" class="hover:text-gold-400 transition">Get In Touch</a>
-            </div>
-
-            <div class="flex items-center gap-2">
-                <a href="#apply" class="px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 shadow-md hover:shadow-gold-500/30 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-file-signature text-xs"></i>
-                    <span>Apply For Loan</span>
-                </a>
-            </div>
+      <div class="calc-row">
+        <div class="calc-label">
+          <span data-i18n="calc_rate_label">Interest Rate (% per year)</span>
+          <span class="val" id="rateDisplay">10.5 %</span>
         </div>
-    </nav>
+        <input type="range" id="rateSlider" min="8" max="22" step="0.5" value="10.5" oninput="calculateEMI()">
+      </div>
 
-    <!-- Hero Section with Background Grid & Floating Badges -->
-    <section class="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden bg-grid-pattern">
-        <!-- Ambient Radial Glows -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[450px] bg-gold-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute -top-20 -left-20 w-80 h-80 bg-navy-800/40 rounded-full blur-[90px] pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-10">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/40 bg-gold-500/10 text-gold-300 text-xs sm:text-sm font-bold tracking-wide uppercase mb-6 animate-pulse-glow">
-                    <i class="fa-solid fa-certificate text-gold-400"></i>
-                    Certified Channel Partner of Finance Company
-                </div>
-
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight sm:leading-none mb-6">
-                    Fast, Reliable & Trusted <br class="hidden sm:block">
-                    <span class="gold-gradient-text">Financial Solutions</span>
-                </h1>
-
-                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                    Empowering entrepreneurs, individuals, and families with accessible loans across commercial, agriculture, healthcare, and personal endeavors.
-                </p>
-
-                <!-- Quick Action Buttons -->
-                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#apply" class="w-full sm:w-auto px-7 py-3.5 rounded-xl text-navy-950 font-bold text-sm bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 hover:from-gold-300 hover:to-gold-500 shadow-lg shadow-gold-500/25 transition-all transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2">
-                        <span>Check Loan Eligibility Now</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                    <a href="#calculator" class="w-full sm:w-auto px-7 py-3.5 rounded-xl border border-gold-500/40 bg-navy-900/60 hover:bg-navy-800 text-gold-300 font-semibold text-sm transition-all text-center flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-calculator"></i>
-                        <span>Calculate Monthly EMI</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Floating Badges Demonstration (Interactive Banner Canvas) -->
-            <div class="relative mt-8 sm:mt-12 max-w-5xl mx-auto p-4 sm:p-8 rounded-3xl glass-card border border-gold-500/30 overflow-hidden shadow-2xl">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent pointer-events-none"></div>
-
-                <div class="flex items-center justify-between pb-4 border-b border-navy-800 mb-6">
-                    <div class="flex items-center space-x-2 text-xs text-gold-400 font-semibold uppercase tracking-wider">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-                        <span>Available Loan Portfolios (Instant Processing)</span>
-                    </div>
-                    <span class="text-xs text-slate-400 hidden sm:inline">Tap any badge to quick-apply</span>
-                </div>
-
-                <!-- Floating Tags Cloud -->
-                <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 relative z-10 py-2" id="heroBadgeCloud">
-                    <!-- Badges populated with distinctive loan pills like banner -->
-                </div>
-
-                <!-- Floating highlights row -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 pt-6 border-t border-navy-800/80 text-center">
-                    <div class="p-3 rounded-xl bg-navy-900/60 border border-slate-800">
-                        <div class="text-gold-400 text-lg font-black">₹0</div>
-                        <div class="text-xs text-slate-400 font-medium">Hidden Charges</div>
-                    </div>
-                    <div class="p-3 rounded-xl bg-navy-900/60 border border-slate-800">
-                        <div class="text-gold-400 text-lg font-black">24-48 Hrs</div>
-                        <div class="text-xs text-slate-400 font-medium">Quick Disbursal</div>
-                    </div>
-                    <div class="p-3 rounded-xl bg-navy-900/60 border border-slate-800">
-                        <div class="text-gold-400 text-lg font-black">12+ Types</div>
-                        <div class="text-xs text-slate-400 font-medium">Loan Solutions</div>
-                    </div>
-                    <div class="p-3 rounded-xl bg-navy-900/60 border border-slate-800">
-                        <div class="text-gold-400 text-lg font-black">100%</div>
-                        <div class="text-xs text-slate-400 font-medium">Dedicated Support</div>
-                    </div>
-                </div>
-            </div>
+      <div class="calc-row">
+        <div class="calc-label">
+          <span data-i18n="calc_tenure_label">Loan Duration</span>
+          <span class="val" id="tenureDisplay">3 Years (36 Mo)</span>
         </div>
-    </section>
+        <input type="range" id="tenureSlider" min="1" max="15" step="1" value="3" oninput="calculateEMI()">
+      </div>
 
-    <!-- Services Grid: Clearly Explaining Every Loan Category from Banner -->
-    <section id="services" class="py-20 bg-navy-900/80 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Our Financial Products</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                    Comprehensive Loan Catalog
-                </h2>
-                <p class="text-slate-400 text-sm sm:text-base mt-3">
-                    As an official Channel Partner of Finance Company, we facilitate hassle-free approvals at competitive interest rates with customized tenure options.
-                </p>
-            </div>
-
-            <!-- 12 Key Loan Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesContainer">
-                <!-- Dynamically rendered for maintainability and full feature set -->
-            </div>
+      <div class="emi-result-box">
+        <div class="emi-result-label" data-i18n="calc_monthly_emi">Estimated Monthly EMI</div>
+        <div class="emi-result-amount" id="monthlyEMI">₹ 6,502</div>
+        <div class="emi-details-summary">
+          <div><span data-i18n="calc_interest">Total Interest</span>: <strong id="totalInterest">₹ 34,064</strong></div>
+          <div><span data-i18n="calc_total_pay">Total Payable</span>: <strong id="totalPayable">₹ 2,34,064</strong></div>
         </div>
-    </section>
-
-    <!-- Interactive EMI Calculator Section -->
-    <section id="calculator" class="py-20 relative bg-navy-950 overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Financial Planning Tool</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Smart Loan EMI Calculator</h2>
-                <p class="text-slate-400 text-sm mt-2">Plan your repayment schedule beforehand with transparent interest breakdowns.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-6 sm:p-10 rounded-3xl shadow-xl">
-                <!-- Controls Left -->
-                <div class="lg:col-span-7 space-y-6">
-                    <!-- Loan Amount -->
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs sm:text-sm font-semibold text-slate-300">Loan Amount</label>
-                            <span class="text-gold-400 font-bold text-base sm:text-lg" id="valAmountDisplay">₹ 5,00,000</span>
-                        </div>
-                        <input type="range" id="inputAmount" min="50000" max="10000000" step="25000" value="500000" 
-                            class="w-full h-2 bg-navy-800 rounded-lg appearance-none cursor-pointer accent-gold-500">
-                        <div class="flex justify-between text-[11px] text-slate-500 mt-1">
-                            <span>₹50K</span>
-                            <span>₹50 Lakhs</span>
-                            <span>₹1 Crore</span>
-                        </div>
-                    </div>
-
-                    <!-- Interest Rate -->
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs sm:text-sm font-semibold text-slate-300">Annual Interest Rate (%)</label>
-                            <span class="text-gold-400 font-bold text-base sm:text-lg" id="valRateDisplay">10.5 %</span>
-                        </div>
-                        <input type="range" id="inputRate" min="5" max="24" step="0.25" value="10.5" 
-                            class="w-full h-2 bg-navy-800 rounded-lg appearance-none cursor-pointer accent-gold-500">
-                        <div class="flex justify-between text-[11px] text-slate-500 mt-1">
-                            <span>5% p.a.</span>
-                            <span>14% p.a.</span>
-                            <span>24% p.a.</span>
-                        </div>
-                    </div>
-
-                    <!-- Tenure -->
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs sm:text-sm font-semibold text-slate-300">Loan Tenure</label>
-                            <span class="text-gold-400 font-bold text-base sm:text-lg" id="valTenureDisplay">3 Years (36 Mo)</span>
-                        </div>
-                        <input type="range" id="inputTenure" min="1" max="25" step="1" value="3" 
-                            class="w-full h-2 bg-navy-800 rounded-lg appearance-none cursor-pointer accent-gold-500">
-                        <div class="flex justify-between text-[11px] text-slate-500 mt-1">
-                            <span>1 Year</span>
-                            <span>12 Years</span>
-                            <span>25 Years</span>
-                        </div>
-                    </div>
-
-                    <!-- Preset Tenure Buttons -->
-                    <div class="flex flex-wrap gap-2 pt-2">
-                        <span class="text-xs text-slate-400 self-center mr-1">Quick Select:</span>
-                        <button onclick="setTenure(1)" class="px-2.5 py-1 text-xs rounded bg-navy-800 hover:bg-gold-500/20 text-slate-300 hover:text-gold-300 border border-slate-700 transition">1 Yr</button>
-                        <button onclick="setTenure(3)" class="px-2.5 py-1 text-xs rounded bg-navy-800 hover:bg-gold-500/20 text-slate-300 hover:text-gold-300 border border-slate-700 transition">3 Yrs</button>
-                        <button onclick="setTenure(5)" class="px-2.5 py-1 text-xs rounded bg-navy-800 hover:bg-gold-500/20 text-slate-300 hover:text-gold-300 border border-slate-700 transition">5 Yrs</button>
-                        <button onclick="setTenure(10)" class="px-2.5 py-1 text-xs rounded bg-navy-800 hover:bg-gold-500/20 text-slate-300 hover:text-gold-300 border border-slate-700 transition">10 Yrs</button>
-                        <button onclick="setTenure(20)" class="px-2.5 py-1 text-xs rounded bg-navy-800 hover:bg-gold-500/20 text-slate-300 hover:text-gold-300 border border-slate-700 transition">20 Yrs</button>
-                    </div>
-                </div>
-
-                <!-- Summary Right Box -->
-                <div class="lg:col-span-5 bg-gradient-to-b from-navy-900 to-navy-950 p-6 sm:p-7 rounded-2xl border border-gold-500/30 text-center">
-                    <span class="text-xs uppercase tracking-wider text-slate-400 font-bold">Estimated Monthly EMI</span>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-gold-400 mt-2 mb-6" id="resMonthlyEMI">₹ 16,252</div>
-
-                    <!-- Visual Progress Comparison -->
-                    <div class="space-y-3 mb-6 text-left">
-                        <div class="h-3 w-full bg-navy-800 rounded-full overflow-hidden flex">
-                            <div id="barPrincipal" class="bg-gradient-to-r from-gold-500 to-gold-400 h-full transition-all duration-300" style="width: 75%"></div>
-                            <div id="barInterest" class="bg-indigo-600 h-full transition-all duration-300" style="width: 25%"></div>
-                        </div>
-                        <div class="flex justify-between text-xs font-semibold text-slate-300">
-                            <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-gold-400 mr-1.5 inline-block"></span> Principal Amount</span>
-                            <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500 mr-1.5 inline-block"></span> Total Interest</span>
-                        </div>
-                    </div>
-
-                    <div class="space-y-3 text-xs sm:text-sm text-left border-t border-navy-800 pt-4">
-                        <div class="flex justify-between">
-                            <span class="text-slate-400">Principal Amount:</span>
-                            <span class="font-bold text-white" id="resPrincipal">₹ 5,00,000</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-slate-400">Total Interest Payable:</span>
-                            <span class="font-bold text-indigo-300" id="resTotalInterest">₹ 85,072</span>
-                        </div>
-                        <div class="flex justify-between border-t border-navy-800 pt-2 font-bold">
-                            <span class="text-slate-200">Total Amount Payable:</span>
-                            <span class="text-gold-300 text-base" id="resTotalPayment">₹ 5,85,072</span>
-                        </div>
-                    </div>
-
-                    <a href="#apply" onclick="prefillCalculatorToForm()" class="mt-6 inline-block w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-xs uppercase tracking-wider transition-all shadow-md">
-                        Apply with these terms
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us / Trust Badges -->
-    <section id="about" class="py-16 bg-navy-900 border-t border-b border-navy-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 rounded-2xl glass-card border border-gold-500/20">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/40 flex items-center justify-center text-gold-400 text-xl mb-4">
-                        <i class="fa-solid fa-bolt"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Fast-Track Approvals</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Direct channel partner access with established finance houses minimizes processing lag and guarantees accelerated sanctioning.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl glass-card border border-gold-500/20">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/40 flex items-center justify-center text-gold-400 text-xl mb-4">
-                        <i class="fa-solid fa-file-shield"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Minimal Documentation</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Simple KYC verification and paperless options simplify personal loans, gold loans, doctor business facilities, and machinery funding.
-                    </p>
-                </div>
-
-                <div class="p-6 rounded-2xl glass-card border border-gold-500/20">
-                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/40 flex items-center justify-center text-gold-400 text-xl mb-4">
-                        <i class="fa-solid fa-user-tie"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Dedicated Advisory</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Personalized guidance from finance specialists Waseem and Anshul to help you pick optimal rates and flexible EMIs.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Loan Inquiry & Lead Capture Form Section (With Email and Phone Capturing) -->
-    <section id="apply" class="py-20 relative bg-navy-950">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Online Application</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Request Loan Consultation</h2>
-                <p class="text-slate-400 text-sm mt-2">
-                    Enter your phone number & details. Our inquiry system prepares an official transmission to <strong class="text-gold-300">wssfinanceservices@gmail.com</strong> with prompt follow-up.
-                </p>
-            </div>
-
-            <div class="glass-card p-6 sm:p-10 rounded-3xl border border-gold-500/30 shadow-2xl relative">
-                <!-- Decorative Corner Badges -->
-                <div class="absolute -top-3 right-8 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                    Instant Callback
-                </div>
-
-                <form id="loanInquiryForm" onsubmit="handleFormSubmission(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Full Name -->
-                        <div>
-                            <label for="applicantName" class="block text-xs sm:text-sm font-semibold text-slate-300 mb-2">
-                                Full Name <span class="text-rose-400">*</span>
-                            </label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
-                                    <i class="fa-regular fa-user text-sm"></i>
-                                </span>
-                                <input type="text" id="applicantName" required placeholder="e.g. Rahul Sharma"
-                                    class="w-full pl-10 pr-4 py-3 bg-navy-900 border border-slate-700 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition">
-                            </div>
-                        </div>
-
-                        <!-- Phone Number (Required) -->
-                        <div>
-                            <label for="applicantPhone" class="block text-xs sm:text-sm font-semibold text-slate-300 mb-2">
-                                Mobile / WhatsApp Number <span class="text-rose-400">*</span>
-                            </label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gold-400 font-bold text-sm">
-                                    +91
-                                </span>
-                                <input type="tel" id="applicantPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number"
-                                    class="w-full pl-14 pr-4 py-3 bg-navy-900 border border-slate-700 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition">
-                            </div>
-                        </div>
-
-                        <!-- Required Loan Type -->
-                        <div>
-                            <label for="loanType" class="block text-xs sm:text-sm font-semibold text-slate-300 mb-2">
-                                Select Loan Category <span class="text-rose-400">*</span>
-                            </label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
-                                    <i class="fa-solid fa-tags text-sm"></i>
-                                </span>
-                                <select id="loanType" required
-                                    class="w-full pl-10 pr-10 py-3 bg-navy-900 border border-slate-700 rounded-xl text-slate-100 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition appearance-none">
-                                    <option value="" disabled selected>Choose a loan service</option>
-                                    <option value="Commercial Vehicle Loan">Commercial Vehicle Loan</option>
-                                    <option value="Used Car Loan">Used Car Loan</option>
-                                    <option value="Car Loan">New Car Loan</option>
-                                    <option value="Tractor Loan">Tractor Loan</option>
-                                    <option value="Construction Equipment Loan">Construction Equipment Loan</option>
-                                    <option value="Gold Loan">Gold Loan</option>
-                                    <option value="Personal Loan">Personal Loan</option>
-                                    <option value="Home Loan">Home Loan</option>
-                                    <option value="Loan Against Property">Loan Against Property (LAP)</option>
-                                    <option value="Business Loan">Business Loan</option>
-                                    <option value="Business Loan For Doctor">Business Loan For Doctor</option>
-                                    <option value="Working Capital Loan">Working Capital Loan</option>
-                                </select>
-                                <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
-                                    <i class="fa-solid fa-chevron-down text-xs"></i>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- Desired Loan Amount -->
-                        <div>
-                            <label for="loanAmount" class="block text-xs sm:text-sm font-semibold text-slate-300 mb-2">
-                                Required Loan Amount (INR)
-                            </label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
-                                    ₹
-                                </span>
-                                <input type="number" id="loanAmount" placeholder="e.g. 500000" min="10000"
-                                    class="w-full pl-9 pr-4 py-3 bg-navy-900 border border-slate-700 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition">
-                            </div>
-                        </div>
-
-                        <!-- City / Location -->
-                        <div>
-                            <label for="applicantCity" class="block text-xs sm:text-sm font-semibold text-slate-300 mb-2">
-                                City / District
-                            </label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
-                                    <i class="fa-solid fa-location-dot text-sm"></i>
-                                </span>
-                                <input type="text" id="applicantCity" placeholder="Your current city / area"
-                                    class="w-full pl-10 pr-4 py-3 bg-navy-900 border border-slate-700 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition">
-                            </div>
-                        </div>
-
-                        <!-- Preferred Contact Officer -->
-                        <div>
-                            <label for="contactOfficer" class="block text-xs sm:text-sm font-semibold text-slate-300 mb-2">
-                                Route Inquiry To
-                            </label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400">
-                                    <i class="fa-solid fa-headset text-sm"></i>
-                                </span>
-                                <select id="contactOfficer"
-                                    class="w-full pl-10 pr-10 py-3 bg-navy-900 border border-slate-700 rounded-xl text-slate-100 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition appearance-none">
-                                    <option value="Both">Both Officers (Fastest Response)</option>
-                                    <option value="Waseem">Waseem (+91 9981829383)</option>
-                                    <option value="Anshul">Anshul (+91 8959059333)</option>
-                                </select>
-                                <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
-                                    <i class="fa-solid fa-chevron-down text-xs"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Additional Notes -->
-                    <div>
-                        <label for="applicantNotes" class="block text-xs sm:text-sm font-semibold text-slate-300 mb-2">
-                            Additional Requirement or Vehicle/Property details
-                        </label>
-                        <textarea id="applicantNotes" rows="3" placeholder="Describe your vehicle model, property type, or specific requirements..."
-                            class="w-full px-4 py-3 bg-navy-900 border border-slate-700 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition"></textarea>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                        <button type="submit" 
-                            class="w-full sm:w-auto px-8 py-3.5 rounded-xl text-navy-950 font-extrabold text-sm bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 hover:from-gold-300 hover:to-gold-500 shadow-xl shadow-gold-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            <span>Submit Application & Email Details</span>
-                        </button>
-                        <span class="text-xs text-slate-400 flex items-center gap-1.5">
-                            <i class="fa-solid fa-shield-halved text-gold-400"></i> Your phone number and information are kept 100% confidential.
-                        </span>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Direct Contact & Channel Partner Credentials Section -->
-    <section id="contact" class="py-16 bg-navy-900/90 border-t border-navy-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                <div>
-                    <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-2">Direct Helpdesk</span>
-                    <h2 class="text-3xl font-extrabold text-white mb-4">Talk To Our Loan Officers</h2>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                        Prefer to talk right now? Call or WhatsApp our designated representatives. We offer on-the-spot evaluation of credit profiles, equipment models, and loan amounts.
-                    </p>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                        <!-- Waseem Card -->
-                        <div class="p-4 rounded-xl bg-navy-950/70 border border-gold-500/20">
-                            <div class="flex items-center space-x-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-gold-500/15 text-gold-400 flex items-center justify-center font-bold text-sm">
-                                    W
-                                </div>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Waseem</div>
-                                    <div class="text-xs text-slate-400">Senior Loan Advisor</div>
-                                </div>
-                            </div>
-                            <div class="text-gold-400 font-bold text-sm mb-3">+91 9981829383</div>
-                            <div class="flex gap-2">
-                                <a href="tel:+919981829383" class="flex-1 py-1.5 text-center text-xs rounded bg-navy-800 hover:bg-gold-500 hover:text-navy-950 font-bold transition">
-                                    <i class="fa-solid fa-phone mr-1"></i> Call
-                                </a>
-                                <a href="https://wa.me/919981829383?text=Hello%20Waseem,%20I%20am%20interested%20in%20a%20loan%20from%20W/S%20Small%20Finance" target="_blank" class="flex-1 py-1.5 text-center text-xs rounded bg-emerald-600/30 hover:bg-emerald-600 text-emerald-200 hover:text-white font-bold transition">
-                                    <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Anshul Card -->
-                        <div class="p-4 rounded-xl bg-navy-950/70 border border-gold-500/20">
-                            <div class="flex items-center space-x-3 mb-3">
-                                <div class="w-10 h-10 rounded-full bg-gold-500/15 text-gold-400 flex items-center justify-center font-bold text-sm">
-                                    A
-                                </div>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Anshul</div>
-                                    <div class="text-xs text-slate-400">Financing Consultant</div>
-                                </div>
-                            </div>
-                            <div class="text-gold-400 font-bold text-sm mb-3">+91 8959059333</div>
-                            <div class="flex gap-2">
-                                <a href="tel:+918959059333" class="flex-1 py-1.5 text-center text-xs rounded bg-navy-800 hover:bg-gold-500 hover:text-navy-950 font-bold transition">
-                                    <i class="fa-solid fa-phone mr-1"></i> Call
-                                </a>
-                                <a href="https://wa.me/918959059333?text=Hello%20Anshul,%20I%20am%20interested%20in%20a%20loan%20from%20W/S%20Small%20Finance" target="_blank" class="flex-1 py-1.5 text-center text-xs rounded bg-emerald-600/30 hover:bg-emerald-600 text-emerald-200 hover:text-white font-bold transition">
-                                    <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Email Box -->
-                    <div class="p-4 rounded-xl bg-navy-800/40 border border-slate-700 flex items-center justify-between">
-                        <div class="flex items-center space-x-3">
-                            <i class="fa-regular fa-envelope text-gold-400 text-xl"></i>
-                            <div>
-                                <div class="text-xs text-slate-400 font-medium">Official Dispatch Email</div>
-                                <div class="text-sm font-bold text-white">wssfinanceservices@gmail.com</div>
-                            </div>
-                        </div>
-                        <button onclick="copyEmailToClipboard()" class="px-3 py-1.5 text-xs bg-navy-800 hover:bg-gold-500/20 text-gold-300 rounded border border-slate-700 transition" id="copyBtn">
-                            Copy Email
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Banner Recreation / Summary Graphic Card -->
-                <div class="glass-card p-7 rounded-3xl border border-gold-500/30 relative">
-                    <div class="text-center pb-5 border-b border-navy-800">
-                        <span class="text-xs font-bold text-gold-400 tracking-wider">OFFICIAL RECOGNITION</span>
-                        <h3 class="text-xl font-display font-black text-white mt-1">W/S SMALL FINANCE AND SERVICES</h3>
-                        <p class="text-xs text-gold-400 font-semibold mt-1">CHANNEL PARTNER OF FINANCE COMPANY</p>
-                    </div>
-
-                    <div class="py-5 space-y-3 text-xs text-slate-300">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-gold-400"></i>
-                            <span>Multi-Bank & NBFC Network For Competitive Interest</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-gold-400"></i>
-                            <span>Commercial Fleets & Heavy Construction Vehicle Finance</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-gold-400"></i>
-                            <span>Agricultural Machinery & Rural Tractor Facilities</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-gold-400"></i>
-                            <span>Specialized High-Value Doctor & Working Capital Loans</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-navy-900/90 rounded-xl p-4 border border-gold-500/20 text-center">
-                        <div class="text-xs text-slate-400 font-medium">Business Tagline</div>
-                        <div class="text-sm font-bold text-gold-300 italic mt-0.5">"SMALL SAVING..... SMART LOAN......"</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-navy-950 border-t border-navy-800 py-10 text-slate-400 text-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-lg bg-gold-500 flex items-center justify-center font-display font-bold text-navy-950 text-sm">
-                    WS
-                </div>
-                <div>
-                    <span class="font-bold text-white text-sm">W/S Small Finance and Services</span>
-                    <span class="block text-[11px] text-slate-500">Channel Partner of Finance Company</span>
-                </div>
-            </div>
-
-            <div class="flex flex-wrap items-center justify-center gap-6 text-slate-400">
-                <a href="#services" class="hover:text-gold-300 transition">Services</a>
-                <a href="#calculator" class="hover:text-gold-300 transition">EMI Calculator</a>
-                <a href="#apply" class="hover:text-gold-300 transition">Inquiry Form</a>
-                <a href="#contact" class="hover:text-gold-300 transition">Contact</a>
-            </div>
-
-            <div class="text-center md:text-right text-[11px] text-slate-500">
-                <p>&copy; 2026 W/S Small Finance and Services. All rights reserved.</p>
-                <p class="mt-0.5">Contact: 9981829383 | 8959059333 | wssfinanceservices@gmail.com</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Fixed Floating Quick Action Buttons for Mobile/Desktop -->
-    <div class="fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 items-end">
-        <!-- Direct WhatsApp Officer 1 -->
-        <a href="https://wa.me/919981829383?text=Hello%20Waseem,%20I%20have%20an%20inquiry%20regarding%20a%20loan%20at%20W/S%20Small%20Finance" target="_blank"
-            class="flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg hover:scale-105 transition-all">
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-            <span class="hidden sm:inline">WhatsApp (Waseem)</span>
-        </a>
-        <!-- Direct Phone Call Officer 2 -->
-        <a href="tel:+918959059333" 
-            class="flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-gold-500 hover:bg-gold-400 text-navy-950 font-extrabold text-xs shadow-lg hover:scale-105 transition-all">
-            <i class="fa-solid fa-phone text-sm"></i>
-            <span class="hidden sm:inline">Call (Anshul)</span>
-        </a>
+      </div>
     </div>
 
-    <!-- Submission Modal Popup (Confirmation & Instant Dispatch) -->
-    <div id="submissionModal" class="fixed inset-0 z-50 bg-navy-950/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
-        <div class="bg-navy-900 border border-gold-500/40 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative text-center">
-            <!-- Close Button -->
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
+    <!-- Lead Form (Direct WhatsApp to Waseem) -->
+    <div class="card" id="applySection">
+      <div class="card-title">
+        <i class="fa-solid fa-file-signature"></i>
+        <span data-i18n="form_title">Get Loan Approval</span>
+      </div>
 
-            <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center text-3xl mx-auto mb-4">
-                <i class="fa-solid fa-check"></i>
-            </div>
-
-            <h3 class="text-xl sm:text-2xl font-black text-white">Application Recorded!</h3>
-            <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
-                Thank you, <strong id="modalApplicantName" class="text-gold-300"></strong>. We have logged your request for <strong id="modalLoanType" class="text-gold-300"></strong> (Mobile: <span id="modalApplicantPhone" class="text-white"></span>).
-            </p>
-
-            <div class="bg-navy-950/80 rounded-xl p-4 my-5 border border-navy-800 text-left text-xs space-y-2">
-                <div class="flex justify-between">
-                    <span class="text-slate-400">Target Email:</span>
-                    <span class="text-gold-400 font-semibold">wssfinanceservices@gmail.com</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-slate-400">Assigned Branch:</span>
-                    <span class="text-slate-200">W/S Channel Partner Desk</span>
-                </div>
-                <div class="flex justify-between">
-                    <span class="text-slate-400">Priority Officer:</span>
-                    <span class="text-slate-200" id="modalOfficer">Waseem & Anshul</span>
-                </div>
-            </div>
-
-            <div class="space-y-3">
-                <a id="modalMailtoBtn" href="#" class="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-xs uppercase tracking-wider transition-all block shadow">
-                    <i class="fa-regular fa-paper-plane mr-1.5"></i> Open Prefilled Email Client
-                </a>
-
-                <div class="grid grid-cols-2 gap-3">
-                    <a id="modalWhatsAppOfficer" href="#" target="_blank" class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition">
-                        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-                    </a>
-                    <button onclick="closeModal()" class="py-2.5 px-3 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-300 font-semibold text-xs transition">
-                        Done / Dismiss
-                    </button>
-                </div>
-            </div>
+      <form id="loanForm" onsubmit="sendToWhatsApp(event)">
+        <div class="form-group">
+          <label data-i18n="label_name">Full Name</label>
+          <input type="text" id="custName" placeholder="Enter your full name" required>
         </div>
+
+        <div class="form-group">
+          <label data-i18n="label_phone">Mobile Number (10 Digits)</label>
+          <input type="tel" id="custPhone" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="label_loan_type">Select Loan Category</label>
+          <select id="loanTypeSelect" required>
+            <option value="Personal Loan">Personal Loan</option>
+            <option value="Commercial Vehicle Loan">Commercial Vehicle Loan</option>
+            <option value="Used Car Loan">Used Car Loan</option>
+            <option value="Business Loan for Doctor">Business Loan for Doctor</option>
+            <option value="Construction Equipment Loan">Construction Equipment Loan</option>
+            <option value="Gold Loan">Gold Loan</option>
+            <option value="Home Loan">Home Loan</option>
+            <option value="Tractor Loan">Tractor Loan</option>
+            <option value="Loan Against Property">Loan Against Property</option>
+            <option value="Car Loan">Car Loan</option>
+            <option value="Business Loan">Business Loan</option>
+            <option value="Working Capital Loan">Working Capital Loan</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="label_amount">Approximate Loan Amount (₹)</label>
+          <input type="number" id="custAmount" placeholder="e.g. 500000" min="20000" required>
+        </div>
+
+        <button type="submit" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp" style="font-size: 19px;"></i>
+          <span data-i18n="btn_submit_wa">Send Details to Waseem on WhatsApp</span>
+        </button>
+      </form>
     </div>
 
-    <!-- Notification Toast Message -->
-    <div id="toast" class="fixed top-20 right-5 z-50 bg-navy-900 border border-gold-500/50 text-white px-4 py-3 rounded-xl shadow-2xl text-xs flex items-center space-x-2 transform translate-x-32 opacity-0 pointer-events-none transition-all duration-300">
-        <i class="fa-solid fa-circle-check text-gold-400 text-base"></i>
-        <span id="toastMessage">Action completed!</span>
+  </div>
+
+  <!-- Direct Contacts Bar -->
+  <div class="direct-contacts">
+    <div class="contacts-wrapper">
+      <div class="contact-item">
+        <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+        <div class="contact-info">
+          <small data-i18n="officer_waseem">Advisor (Waseem)</small>
+          <a href="tel:+919981829383">+91 99818 29383</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+        <div class="contact-info">
+          <small data-i18n="officer_anshul">Advisor (Anshul)</small>
+          <a href="tel:+918959059333">+91 89590 59333</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="icon-circle"><i class="fa-solid fa-envelope"></i></div>
+        <div class="contact-info">
+          <small data-i18n="official_email">Official Email</small>
+          <a href="mailto:wssmallfinance@gmail.com">wssmallfinance@gmail.com</a>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- JavaScript Data and Interactive Logic -->
-    <script>
-        // All 12 Loan Offerings extracted directly from the business banner
-        const servicesData = [
-            {
-                id: 'comm-veh',
-                title: 'Commercial Vehicle Loan',
-                icon: 'fa-truck-front',
-                desc: 'Funding for multi-axle trucks, tippers, pickup vans, and commercial fleet expansion.',
-                highlight: 'Up to 90% On-Road Funding',
-                badgeStyle: 'from-amber-500/20 to-gold-500/10 border-gold-400/40'
-            },
-            {
-                id: 'used-car',
-                title: 'Used Car Loan',
-                icon: 'fa-car-side',
-                desc: 'Competitive interest rates with certified valuations for certified pre-owned hatchbacks and sedans.',
-                highlight: 'Fast Valuation & Transfer',
-                badgeStyle: 'from-blue-500/20 to-sky-500/10 border-sky-400/40'
-            },
-            {
-                id: 'doctor-loan',
-                title: 'Business Loan For Doctor',
-                icon: 'fa-user-doctor',
-                desc: 'Specialized clinic setups, diagnostic apparatus purchase, hospital development, and medical practices.',
-                highlight: 'Collateral-free up to ₹50 Lakhs',
-                badgeStyle: 'from-emerald-500/20 to-teal-500/10 border-emerald-400/40'
-            },
-            {
-                id: 'const-equip',
-                title: 'Construction Equipment Loan',
-                icon: 'fa-trowel-bricks',
-                desc: 'Finance for JCBs, excavators, road rollers, cranes, and specialized civil engineering machinery.',
-                highlight: 'Tailored Seasonal Repayments',
-                badgeStyle: 'from-amber-600/20 to-yellow-500/10 border-yellow-500/40'
-            },
-            {
-                id: 'gold-loan',
-                title: 'Gold Loan',
-                icon: 'fa-coins',
-                desc: 'Instant liquidity against gold ornaments with certified valuation and high loan-to-value (LTV).',
-                highlight: 'Same Day Cash/Account Credit',
-                badgeStyle: 'from-yellow-500/20 to-amber-500/10 border-gold-400/40'
-            },
-            {
-                id: 'home-loan',
-                title: 'Home Loan',
-                icon: 'fa-house-chimney',
-                desc: 'Affordable home purchase, plot construction, home expansion, and balance transfer options.',
-                highlight: 'Tenures up to 25 Years',
-                badgeStyle: 'from-cyan-500/20 to-blue-500/10 border-cyan-400/40'
-            },
-            {
-                id: 'tractor-loan',
-                title: 'Tractor Loan',
-                icon: 'fa-tractor',
-                desc: 'Dedicated agricultural finance for all leading tractor brands and implements for farmers.',
-                highlight: 'Crop-Harvest Linked EMIs',
-                badgeStyle: 'from-emerald-600/20 to-green-500/10 border-green-400/40'
-            },
-            {
-                id: 'personal-loan',
-                title: 'Personal Loan',
-                icon: 'fa-user-shield',
-                desc: 'Unsecured financing for weddings, education, emergency medical needs, and travel.',
-                highlight: 'Zero Security Required',
-                badgeStyle: 'from-purple-500/20 to-indigo-500/10 border-purple-400/40'
-            },
-            {
-                id: 'lap-loan',
-                title: 'Loan Against Property',
-                icon: 'fa-building-columns',
-                desc: 'Unlock the high equity embedded in your residential, commercial, or industrial properties.',
-                highlight: 'Lower Interest & High Limit',
-                badgeStyle: 'from-rose-500/20 to-red-500/10 border-rose-400/40'
-            },
-            {
-                id: 'car-loan',
-                title: 'New Car Loan',
-                icon: 'fa-car',
-                desc: 'Drive your dream passenger car with streamlined digital processing and on-road tie-ups.',
-                highlight: 'Low Down Payment',
-                badgeStyle: 'from-blue-600/20 to-indigo-500/10 border-blue-400/40'
-            },
-            {
-                id: 'business-loan',
-                title: 'Business Loan',
-                icon: 'fa-briefcase',
-                desc: 'Capital for trading, manufacturing, store expansion, and inventory scaling for MSMEs.',
-                highlight: 'Flexible Tenure Options',
-                badgeStyle: 'from-gold-600/20 to-amber-500/10 border-gold-400/40'
-            },
-            {
-                id: 'working-capital',
-                title: 'Working Capital Loan',
-                icon: 'fa-money-bill-trend-up',
-                desc: 'Overdraft (OD), Cash Credit (CC) limits, and supplier invoice discounting facilities.',
-                highlight: 'Pay Interest Only on Usage',
-                badgeStyle: 'from-emerald-500/20 to-lime-500/10 border-lime-400/40'
-            }
-        ];
+  <!-- Sticky Quick Action Buttons -->
+  <div class="sticky-bar">
+    <a href="https://wa.me/919981829383" target="_blank" class="quick-fab whatsapp" title="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="tel:+919981829383" class="quick-fab call" title="Call Waseem">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+  </div>
+     <!-- Footer -->
+  <footer>
+    <p>© 2026 W/S Small Finance and Services. Channel Partner of Finance Company. All rights reserved.</p>
+  </footer>
 
-        // Floating Badges in Hero Cloud
-        function renderHeroBadges() {
-            const container = document.getElementById('heroBadgeCloud');
-            if (!container) return;
+  <!-- Script for Language Switch, Easy EMI, and WhatsApp Routing -->
+  <script>
+    // Bilingual Dictionary
+    const translations = {
+      en: {
+        lang_btn: "हिन्दी",
+        company_name: "W/S SMALL FINANCE & SERVICES",
+        tagline_sub: "Channel Partner of Finance Company",
+        badge_tagline: "SMALL SAVING..... SMART LOAN......",
+        hero_title: "Smart Loan Solutions <span>Made Fast & Simple</span>",
+        hero_desc: "Compare, calculate, and apply for verified commercial, personal, gold, property, and vehicle loans with immediate advisory assistance.",
+        loan_comm_vehicle: "Commercial Vehicle Loan",
+        loan_used_car: "Used Car Loan",
+        loan_doc_business: "Business Loan for Doctor",
+        loan_const_equip: "Construction Equipment Loan",
+        loan_gold: "Gold Loan",
+        loan_home: "Home Loan",
+        loan_tractor: "Tractor Loan",
+        loan_personal: "Personal Loan",
+        loan_lap: "Loan Against Property",
+        loan_car: "Car Loan",
+        loan_business: "Business Loan",
+        loan_working_capital: "Working Capital Loan",
+        calc_title: "Quick EMI Calculator",
+        calc_amt_label: "Loan Amount",
+        calc_rate_label: "Interest Rate (% per year)",
+        calc_tenure_label: "Loan Duration",
+        calc_monthly_emi: "Estimated Monthly EMI",
+        calc_interest: "Total Interest",
+        calc_total_pay: "Total Payable",
+        form_title: "Get Loan Approval",
+        label_name: "Full Name",
+        label_phone: "Mobile Number (10 Digits)",
+        label_loan_type: "Select Loan Category",
+        label_amount: "Approximate Loan Amount (₹)",
+        btn_submit_wa: "Send Details to Waseem on WhatsApp",
+        officer_waseem: "Advisor (Waseem)",
+        officer_anshul: "Advisor (Anshul)",
+        official_email: "Official Email"
+      },
+      hi: {
+        lang_btn: "English",
+        company_name: "W/S स्मॉल फाइनेंस एंड सर्विसेज",
+        tagline_sub: "चैनल पार्टनर ऑफ फाइनेंस कंपनी",
+        badge_tagline: "छोटी बचत..... स्मार्ट लोन......",
+        hero_title: "स्मार्ट लोन सेवाएं <span>आसान और तेज़</span>",
+        hero_desc: "कमर्शियल वाहन, पर्सनल, गोल्ड, होम लोन और बिजनेस लोन के लिए तुरंत आवेदन करें और सीधी सहायता प्राप्त करें।",
+        loan_comm_vehicle: "कमर्शियल वाहन लोन",
+        loan_used_car: "पुरानी कार लोन",
+        loan_doc_business: "डॉक्टर बिजनेस लोन",
+        loan_const_equip: "कंस्ट्रक्शन उपकरण लोन",
+        loan_gold: "गोल्ड लोन",
+        loan_home: "होम लोन",
+        loan_tractor: "ट्रैक्टर लोन",
+        loan_personal: "पर्सनल लोन",
+        loan_lap: "प्रॉपर्टी पर लोन (LAP)",
+        loan_car: "कार लोन",
+        loan_business: "बिजनेस लोन",
+        loan_working_capital: "वर्किंग कैपिटल लोन",
+        calc_title: "आसान EMI कैलकुलेटर",
+        calc_amt_label: "लोन की राशि",
+        calc_rate_label: "ब्याज दर (% प्रति वर्ष)",
+        calc_tenure_label: "अवधि (समय)",
+        calc_monthly_emi: "अनुमानित मासिक किस्त (EMI)",
+        calc_interest: "कुल ब्याज",
+        calc_total_pay: "कुल भुगतान",
+        form_title: "लोन स्वीकृति के लिए आवेदन करें",
+        label_name: "पूरा नाम",
+        label_phone: "मोबाइल नंबर (10 अंक)",
+        label_loan_type: "लोन का प्रकार चुनें",
+        label_amount: "आवश्यक राशि (₹)",
+        btn_submit_wa: "वसीम को व्हाट्सएप पर विवरण भेजें",
+        officer_waseem: "सलाहकार (वसीम)",
+        officer_anshul: "सलाहकार (अंशुल)",
+        official_email: "आधिकारिक ईमेल"
+      }
+    };
 
-            const animations = ['animate-float-slow', 'animate-float-reverse', 'animate-float-delay'];
-            
-            container.innerHTML = servicesData.map((item, idx) => {
-                const anim = animations[idx % animations.length];
-                return `
-                    <button type="button" onclick="selectLoanService('${item.title}')" 
-                        class="${anim} group px-4 py-2 rounded-full border bg-gradient-to-r ${item.badgeStyle} backdrop-blur-md text-xs sm:text-sm font-semibold text-slate-100 flex items-center space-x-2.5 shadow-md hover:scale-105 active:scale-95 transition-transform duration-200">
-                        <span class="w-7 h-7 rounded-full bg-navy-950/80 border border-gold-400/50 flex items-center justify-center text-gold-400 text-xs">
-                            <i class="fa-solid ${item.icon}"></i>
-                        </span>
-                        <span class="group-hover:text-gold-300 transition-colors">${item.title}</span>
-                    </button>
-                `;
-            }).join('');
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'hi' : 'en';
+      document.getElementById('langText').innerText = translations[currentLang].lang_btn;
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
         }
+      });
+      calculateEMI();
+    }
 
-        // Render Service Cards
-        function renderServicesGrid() {
-            const container = document.getElementById('servicesContainer');
-            if (!container) return;
-
-            container.innerHTML = servicesData.map((item) => {
-                return `
-                    <div class="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between group">
-                        <div>
-                            <div class="flex items-start justify-between mb-4">
-                                <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-xl group-hover:bg-gold-500 group-hover:text-navy-950 transition-colors duration-300">
-                                    <i class="fa-solid ${item.icon}"></i>
-                                </div>
-                                <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-navy-950 text-gold-300 border border-gold-500/20">
-                                    ${item.highlight}
-                                </span>
-                            </div>
-                            <h3 class="text-lg font-bold text-white group-hover:text-gold-300 transition-colors mb-2">
-                                ${item.title}
-                            </h3>
-                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                                ${item.desc}
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-navy-800 flex items-center justify-between">
-                            <button onclick="selectLoanService('${item.title}')" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1.5 transition">
-                                <span>Inquire Now</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                            <span class="text-[11px] text-slate-500">Channel Partner Desk</span>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+    // Floating Tag Click
+    function selectLoanTag(loanName) {
+      const select = document.getElementById('loanTypeSelect');
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value === loanName) {
+          select.selectedIndex = i;
+          break;
         }
+      }
+      document.getElementById('applySection').scrollIntoView({ behavior: 'smooth' });
+    }
 
-        // Select loan from badge or card and navigate to application form
-        function selectLoanService(serviceName) {
-            const dropdown = document.getElementById('loanType');
-            if (dropdown) {
-                dropdown.value = serviceName;
-            }
-            const applySection = document.getElementById('apply');
-            if (applySection) {
-                applySection.scrollIntoView({ behavior: 'smooth' });
-            }
-            showToast(`Selected: ${serviceName}`);
-        }
+    // Easy Preset Chips
+    function setPreset(val) {
+      document.getElementById('amountSlider').value = val;
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+      calculateEMI();
+    }
 
-        // Interactive EMI Calculator Calculations
-        const inputAmount = document.getElementById('inputAmount');
-        const inputRate = document.getElementById('inputRate');
-        const inputTenure = document.getElementById('inputTenure');
+    // Instant EMI Calculator
+    function calculateEMI() {
+      const P = parseFloat(document.getElementById('amountSlider').value);
+      const rAnnual = parseFloat(document.getElementById('rateSlider').value);
+      const years = parseInt(document.getElementById('tenureSlider').value);
+      const n = years * 12;
+      const r = (rAnnual / 12) / 100;
 
-        const valAmountDisplay = document.getElementById('valAmountDisplay');
-        const valRateDisplay = document.getElementById('valRateDisplay');
-        const valTenureDisplay = document.getElementById('valTenureDisplay');
+      document.getElementById('amtDisplay').innerText = "₹ " + P.toLocaleString('en-IN');
+      document.getElementById('rateDisplay').innerText = rAnnual.toFixed(1) + " %";
+      document.getElementById('tenureDisplay').innerText = `${years} ${currentLang === 'hi' ? 'वर्ष' : 'Years'} (${n} Mo)`;
 
-        const resMonthlyEMI = document.getElementById('resMonthlyEMI');
-        const resPrincipal = document.getElementById('resPrincipal');
-        const resTotalInterest = document.getElementById('resTotalInterest');
-        const resTotalPayment = document.getElementById('resTotalPayment');
-        const barPrincipal = document.getElementById('barPrincipal');
-        const barInterest = document.getElementById('barInterest');
+      // Standard EMI Formula: [P x r x (1+r)^n]/[(1+r)^n-1]
+      const emi = Math.round((P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+      const totalPayment = emi * n;
+      const totalInterest = totalPayment - P;
 
-        function formatINR(val) {
-            return '₹ ' + Math.round(val).toLocaleString('en-IN');
-        }
+      document.getElementById('monthlyEMI').innerText = "₹ " + emi.toLocaleString('en-IN');
+      document.getElementById('totalInterest').innerText = "₹ " + totalInterest.toLocaleString('en-IN');
+      document.getElementById('totalPayable').innerText = "₹ " + totalPayment.toLocaleString('en-IN');
+    }
 
-        function calculateEMI() {
-            const P = parseFloat(inputAmount.value);
-            const annualR = parseFloat(inputRate.value);
-            const years = parseFloat(inputTenure.value);
-            const N = years * 12; // tenure in months
-            const r = annualR / (12 * 100); // monthly interest rate
+    // Direct WhatsApp Submission to Waseem (+91 9981829383)
+    function sendToWhatsApp(e) {
+      e.preventDefault();
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const loanType = document.getElementById('loanTypeSelect').value;
+      const amount = document.getElementById('custAmount').value.trim();
 
-            // EMI formula: P * r * (1 + r)^N / ((1 + r)^N - 1)
-            let emi = 0;
-            if (r === 0) {
-                emi = P / N;
-            } else {
-                emi = (P * r * Math.pow(1 + r, N)) / (Math.pow(1 + r, N) - 1);
-            }
+      const message = `*New Loan Application - W/S Small Finance*%0A%0A` +
+                      `*Name:* ${encodeURIComponent(name)}%0A` +
+                      `*Phone:* ${phone}%0A` +
+                      `*Loan Required:* ${encodeURIComponent(loanType)}%0A` +
+                      `*Amount:* ₹${Number(amount).toLocaleString('en-IN')}%0A%0A` +
+                      `_Inquiry sent from official web portal._`;
 
-            const totalPayment = emi * N;
-            const totalInterest = totalPayment - P;
+      const waseemWhatsAppNumber = "919981829383";
+      const waUrl = `https://wa.me/${waseemWhatsAppNumber}?text=${message}`;
+      
+      window.open(waUrl, '_blank');
+    }
 
-            // Update DOM
-            valAmountDisplay.innerText = formatINR(P);
-            valRateDisplay.innerText = `${annualR} %`;
-            valTenureDisplay.innerText = `${years} ${years === 1 ? 'Year' : 'Years'} (${N} Mo)`;
-
-            resMonthlyEMI.innerText = formatINR(emi);
-            resPrincipal.innerText = formatINR(P);
-            resTotalInterest.innerText = formatINR(totalInterest);
-            resTotalPayment.innerText = formatINR(totalPayment);
-
-            // Progress bar proportion
-            const principalPct = Math.round((P / totalPayment) * 100);
-            const interestPct = 100 - principalPct;
-            barPrincipal.style.width = `${principalPct}%`;
-            barInterest.style.width = `${interestPct}%`;
-        }
-
-        function setTenure(yrs) {
-            inputTenure.value = yrs;
-            calculateEMI();
-        }
-
-        function prefillCalculatorToForm() {
-            const amt = inputAmount.value;
-            const formAmtInput = document.getElementById('loanAmount');
-            if (formAmtInput) {
-                formAmtInput.value = amt;
-            }
-            showToast(`Prefilled ₹${parseInt(amt).toLocaleString('en-IN')} in application`);
-        }
-
-        // Attach Calculator Listeners
-        [inputAmount, inputRate, inputTenure].forEach(el => {
-            if (el) el.addEventListener('input', calculateEMI);
-        });
-
-        // Form Submission Handler: Generates structured email to wssfinanceservices@gmail.com & shows modal
-        function handleFormSubmission(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('applicantName').value.trim();
-            const phone = document.getElementById('applicantPhone').value.trim();
-            const loan = document.getElementById('loanType').value;
-            const amount = document.getElementById('loanAmount').value || 'Not specified';
-            const city = document.getElementById('applicantCity').value.trim() || 'Not specified';
-            const officer = document.getElementById('contactOfficer').value;
-            const notes = document.getElementById('applicantNotes').value.trim() || 'No additional remarks';
-
-            // Construct mailto link
-            const emailRecipient = 'wssfinanceservices@gmail.com';
-            const subject = encodeURIComponent(`New Loan Inquiry: ${loan} - ${name} (${phone})`);
-            
-            const bodyContent = 
-`Dear W/S Small Finance Team,
-
-A new customer inquiry has been received via the online portal.
-
-CUSTOMER DETAILS:
-----------------------------
-• Applicant Name : ${name}
-• Contact Phone  : +91 ${phone}
-• City / Region  : ${city}
-• Required Loan  : ${loan}
-• Desired Amount : INR ${amount}
-• Routing To     : ${officer}
-
-APPLICANT NOTES:
-${notes}
-
-----------------------------
-Channel Partner of Finance Company
-Direct Officers:
-Waseem: +91 9981829383
-Anshul: +91 8959059333
-E-mail: wssfinanceservices@gmail.com
-Timestamp: ${new Date().toLocaleString()}`;
-
-            const mailtoUrl = `mailto:${emailRecipient}?subject=${subject}&body=${encodeURIComponent(bodyContent)}`;
-
-            // Populate Modal Content
-            document.getElementById('modalApplicantName').innerText = name;
-            document.getElementById('modalLoanType').innerText = loan;
-            document.getElementById('modalApplicantPhone').innerText = '+91 ' + phone;
-            document.getElementById('modalOfficer').innerText = officer === 'Both' ? 'Waseem (+91 9981829383) & Anshul (+91 8959059333)' : officer;
-
-            const modalMailtoBtn = document.getElementById('modalMailtoBtn');
-            modalMailtoBtn.href = mailtoUrl;
-
-            // Pre-configure WhatsApp fast-link for customer to WhatsApp Waseem/Anshul directly
-            const targetWaNumber = (officer === 'Anshul') ? '918959059333' : '919981829383';
-            const waOfficerName = (officer === 'Anshul') ? 'Anshul' : 'Waseem';
-            const waText = encodeURIComponent(`Hello ${waOfficerName}, I submitted an inquiry for ${loan} (Amount: INR ${amount}) for ${name}, Mob: ${phone}. Please guide me on next steps.`);
-            document.getElementById('modalWhatsAppOfficer').href = `https://wa.me/${targetWaNumber}?text=${waText}`;
-
-            // Reveal Modal
-            const modal = document.getElementById('submissionModal');
-            modal.classList.remove('hidden');
-
-            // Trigger mailto client
-            try {
-                window.location.href = mailtoUrl;
-            } catch (err) {
-                console.log('Mail client prompt', err);
-            }
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('submissionModal');
-            modal.classList.add('hidden');
-        }
-
-        // Copy Email to clipboard utility
-        function copyEmailToClipboard() {
-            const email = "wssfinanceservices@gmail.com";
-            const tempInput = document.createElement("input");
-            tempInput.value = email;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-
-            const copyBtn = document.getElementById('copyBtn');
-            if (copyBtn) copyBtn.innerText = "Copied!";
-            setTimeout(() => {
-                if (copyBtn) copyBtn.innerText = "Copy Email";
-            }, 2500);
-
-            showToast("Email address copied to clipboard!");
-        }
-
-        // Toast feedback message
-        function showToast(text) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toastMessage');
-            if (!toast || !toastMsg) return;
-
-            toastMsg.innerText = text;
-            toast.classList.remove('translate-x-32', 'opacity-0', 'pointer-events-none');
-            toast.classList.add('translate-x-0', 'opacity-100');
-
-            setTimeout(() => {
-                toast.classList.add('translate-x-32', 'opacity-0', 'pointer-events-none');
-                toast.classList.remove('translate-x-0', 'opacity-100');
-            }, 3000);
-        }
-
-        // Initial setup on window load
-        window.onload = function() {
-            renderHeroBadges();
-            renderServicesGrid();
-            calculateEMI();
-        };
-    </script>
+    // Run Initial Calculation on Load
+    calculateEMI();
+  </script>
 </body>
-</html>
+    </html>
+
+  
