@@ -10,14 +10,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg-dark: #081120;
-      --bg-card: #0e1e38;
-      --bg-card-light: #162a4d;
+      --bg-dark: #070e1c;
+      --bg-card: #0d1b33;
+      --bg-card-light: #152747;
       --gold-primary: #f5b027;
       --gold-secondary: #df971a;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --border-color: rgba(245, 176, 39, 0.25);
+      --border-color: rgba(245, 176, 39, 0.22);
       --green-wa: #25D366;
     }
 
@@ -37,13 +37,13 @@
 
     /* Top Nav */
     header {
-      background: rgba(8, 17, 32, 0.95);
+      background: rgba(7, 14, 28, 0.96);
       backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
       z-index: 100;
       border-bottom: 1px solid var(--border-color);
-      padding: 12px 20px;
+      padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -57,7 +57,7 @@
 
     .brand-icon {
       background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
-      color: #081120;
+      color: #070e1c;
       width: 44px;
       height: 44px;
       display: flex;
@@ -70,10 +70,10 @@
     }
 
     .brand-text h1 {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 800;
-      letter-spacing: 0.5px;
       color: #ffffff;
+      letter-spacing: 0.5px;
     }
 
     .brand-text p {
@@ -84,37 +84,31 @@
       letter-spacing: 1px;
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     .lang-btn {
       background: var(--bg-card-light);
       border: 1px solid var(--gold-primary);
       color: #fff;
-      padding: 6px 14px;
+      padding: 7px 16px;
       border-radius: 20px;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       transition: all 0.2s ease;
     }
 
     .lang-btn:hover {
       background: var(--gold-primary);
-      color: #081120;
+      color: #070e1c;
     }
 
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 50px 20px 30px;
-      max-width: 900px;
+      padding: 55px 20px 35px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
@@ -123,23 +117,23 @@
       background: rgba(245, 176, 39, 0.12);
       border: 1px solid var(--gold-primary);
       color: var(--gold-primary);
-      padding: 6px 16px;
+      padding: 6px 18px;
       border-radius: 30px;
       font-size: 13px;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       letter-spacing: 0.5px;
     }
 
     .hero h2 {
-      font-size: clamp(28px, 5vw, 42px);
+      font-size: clamp(28px, 5.5vw, 44px);
       font-weight: 800;
       line-height: 1.25;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .hero h2 span {
-      background: linear-gradient(90deg, #f5b027, #ffd875);
+      background: linear-gradient(90deg, #f5b027, #ffe28a);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -147,7 +141,7 @@
     .hero p {
       color: var(--text-muted);
       font-size: 16px;
-      max-width: 650px;
+      max-width: 720px;
       margin: 0 auto 30px;
     }
 
@@ -157,8 +151,8 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 12px;
-      max-width: 850px;
-      margin: 0 auto 40px;
+      max-width: 950px;
+      margin: 0 auto 45px;
       padding: 0 10px;
     }
 
@@ -168,7 +162,7 @@
       color: #fff;
       padding: 10px 18px;
       border-radius: 50px;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -179,19 +173,13 @@
       animation: float 4s ease-in-out infinite;
     }
 
-    .floating-tag i {
-      color: var(--gold-primary);
-    }
-
-    .floating-tag:nth-child(even) {
-      animation-delay: 2s;
-    }
-
+    .floating-tag i { color: var(--gold-primary); }
+    .floating-tag:nth-child(even) { animation-delay: 2s; }
     .floating-tag:hover {
-      transform: translateY(-4px) scale(1.05);
+      transform: translateY(-4px) scale(1.04);
       border-color: var(--gold-primary);
-      box-shadow: 0 6px 20px rgba(245, 176, 39, 0.4);
       background: var(--bg-card-light);
+      box-shadow: 0 6px 20px rgba(245, 176, 39, 0.4);
     }
 
     @keyframes float {
@@ -199,9 +187,116 @@
       50% { transform: translateY(-6px); }
     }
 
-    /* Main Container */
+    /* Stats Grid */
+    .stats-container {
+      max-width: 1080px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-card h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold-primary);
+      margin-bottom: 4px;
+    }
+
+    .stat-card p {
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Section Headings */
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h3 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Loan Services Detailed Grid */
+    .services-wrapper {
+      max-width: 1080px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold-primary);
+      background: var(--bg-card-light);
+    }
+
+    .service-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(245, 176, 39, 0.15);
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .service-card h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .service-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Main Container (Calculator & Form) */
     .container {
-      max-width: 1050px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 0 20px 60px;
       display: grid;
@@ -210,12 +305,9 @@
     }
 
     @media (max-width: 850px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
+      .container { grid-template-columns: 1fr; }
     }
 
-    /* Cards */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -236,9 +328,7 @@
       padding-bottom: 12px;
     }
 
-    .card-title i {
-      color: var(--gold-primary);
-    }
+    .card-title i { color: var(--gold-primary); }
 
     /* Easy EMI Calculator */
     .quick-chips {
@@ -266,10 +356,7 @@
       color: var(--gold-primary);
     }
 
-    .calc-row {
-      margin-bottom: 18px;
-    }
-
+    .calc-row { margin-bottom: 18px; }
     .calc-label {
       display: flex;
       justify-content: space-between;
@@ -277,11 +364,7 @@
       color: var(--text-muted);
       margin-bottom: 6px;
     }
-
-    .calc-label span.val {
-      font-weight: 700;
-      color: #fff;
-    }
+    .calc-label span.val { font-weight: 700; color: #fff; }
 
     input[type=range] {
       width: 100%;
@@ -292,10 +375,10 @@
     }
 
     .emi-result-box {
-      background: linear-gradient(135deg, rgba(245, 176, 39, 0.15), rgba(14, 30, 56, 0.8));
+      background: linear-gradient(135deg, rgba(245, 176, 39, 0.15), rgba(13, 27, 51, 0.9));
       border: 1px solid var(--gold-primary);
       border-radius: 12px;
-      padding: 16px;
+      padding: 18px;
       text-align: center;
       margin-top: 20px;
     }
@@ -325,10 +408,7 @@
     }
 
     /* Lead Form */
-    .form-group {
-      margin-bottom: 16px;
-    }
-
+    .form-group { margin-bottom: 16px; }
     .form-group label {
       display: block;
       font-size: 13px;
@@ -376,9 +456,98 @@
       transform: translateY(-2px);
     }
 
+    /* Location & Office Section */
+    .location-wrapper {
+      max-width: 1080px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .location-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .location-card { grid-template-columns: 1fr; }
+    }
+
+    .location-details h4 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .location-badge {
+      display: inline-block;
+      background: rgba(245, 176, 39, 0.15);
+      color: var(--gold-primary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .location-info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .location-info-row i {
+      color: var(--gold-primary);
+      font-size: 17px;
+      margin-top: 3px;
+    }
+
+    .btn-map-directions {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-primary);
+      color: #070e1c;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 14px;
+      transition: transform 0.2s;
+    }
+
+    .btn-map-directions:hover {
+      transform: translateY(-2px);
+      background: var(--gold-secondary);
+    }
+
+    .map-frame {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 250px;
+      background: var(--bg-card-light);
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     /* Direct Contacts Bar */
     .direct-contacts {
-      max-width: 1050px;
+      max-width: 1080px;
       margin: 0 auto 60px;
       padding: 0 20px;
     }
@@ -430,9 +599,7 @@
       transition: color 0.2s;
     }
 
-    .contact-info a:hover {
-      color: var(--gold-primary);
-    }
+    .contact-info a:hover { color: var(--gold-primary); }
 
     /* Sticky Quick Actions */
     .sticky-bar {
@@ -460,7 +627,7 @@
     }
 
     .quick-fab.whatsapp { background: var(--green-wa); }
-    .quick-fab.call { background: var(--gold-primary); color: #081120; }
+    .quick-fab.call { background: var(--gold-primary); color: #070e1c; }
     .quick-fab:hover { transform: scale(1.1); }
 
     /* Footer */
@@ -495,15 +662,15 @@
   <section class="hero">
     <div class="tagline-badge" data-i18n="badge_tagline">SMALL SAVING..... SMART LOAN......</div>
     <h2 data-i18n="hero_title">Smart Loan Solutions <span>Made Fast & Simple</span></h2>
-    <p data-i18n="hero_desc">Compare, calculate, and apply for verified commercial, personal, gold, property, and vehicle loans with immediate advisory assistance.</p>
+    <p data-i18n="hero_desc">Authorized Channel Partner providing quick approvals on commercial, equipment, agricultural, and personal financing across Madhya Pradesh.</p>
   </section>
 
   <!-- Interactive Floating Tags -->
   <div class="floating-container">
     <div class="floating-tag" onclick="selectLoanTag('Commercial Vehicle Loan')"><i class="fa-solid fa-truck"></i> <span data-i18n="loan_comm_vehicle">Commercial Vehicle Loan</span></div>
     <div class="floating-tag" onclick="selectLoanTag('Used Car Loan')"><i class="fa-solid fa-car-side"></i> <span data-i18n="loan_used_car">Used Car Loan</span></div>
-    <div class="floating-tag" onclick="selectLoanTag('Doctor Business Loan')"><i class="fa-solid fa-user-doctor"></i> <span data-i18n="loan_doc_business">Business Loan for Doctor</span></div>
-    <div class="floating-tag" onclick="selectLoanTag('Construction Equipment')"><i class="fa-solid fa-trowel-bricks"></i> <span data-i18n="loan_const_equip">Construction Equipment Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Business Loan for Doctor')"><i class="fa-solid fa-user-doctor"></i> <span data-i18n="loan_doc_business">Business Loan for Doctor</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Construction Equipment Loan')"><i class="fa-solid fa-trowel-bricks"></i> <span data-i18n="loan_const_equip">Construction Equipment Loan</span></div>
     <div class="floating-tag" onclick="selectLoanTag('Gold Loan')"><i class="fa-solid fa-coins"></i> <span data-i18n="loan_gold">Gold Loan</span></div>
     <div class="floating-tag" onclick="selectLoanTag('Home Loan')"><i class="fa-solid fa-house"></i> <span data-i18n="loan_home">Home Loan</span></div>
     <div class="floating-tag" onclick="selectLoanTag('Tractor Loan')"><i class="fa-solid fa-tractor"></i> <span data-i18n="loan_tractor">Tractor Loan</span></div>
@@ -511,10 +678,87 @@
     <div class="floating-tag" onclick="selectLoanTag('Loan Against Property')"><i class="fa-solid fa-building-columns"></i> <span data-i18n="loan_lap">Loan Against Property</span></div>
     <div class="floating-tag" onclick="selectLoanTag('Car Loan')"><i class="fa-solid fa-car"></i> <span data-i18n="loan_car">Car Loan</span></div>
     <div class="floating-tag" onclick="selectLoanTag('Business Loan')"><i class="fa-solid fa-briefcase"></i> <span data-i18n="loan_business">Business Loan</span></div>
-    <div class="floating-tag" onclick="selectLoanTag('Working Capital')"><i class="fa-solid fa-chart-line"></i> <span data-i18n="loan_working_capital">Working Capital Loan</span></div>
+    <div class="floating-tag" onclick="selectLoanTag('Working Capital Loan')"><i class="fa-solid fa-chart-line"></i> <span data-i18n="loan_working_capital">Working Capital Loan</span></div>
   </div>
 
-  <!-- Main Calculator & Lead Application Section -->
+  <!-- Key Statistics -->
+  <div class="stats-container">
+    <div class="stat-card">
+      <h3>12+</h3>
+      <p data-i18n="stat_loans">Loan Categories</p>
+    </div>
+    <div class="stat-card">
+      <h3>100%</h3>
+      <p data-i18n="stat_support">Dedicated Advisory</p>
+    </div>
+    <div class="stat-card">
+      <h3>Fast</h3>
+      <p data-i18n="stat_process">Minimal Documentation</p>
+    </div>
+    <div class="stat-card">
+      <h3>Satna</h3>
+      <p data-i18n="stat_location">Local Branch Office</p>
+    </div>
+  </div>
+
+  <!-- Detailed Services Section -->
+  <section class="services-wrapper">
+    <div class="section-title">
+      <h3 data-i18n="services_heading">Our Loan Portfolios</h3>
+      <p data-i18n="services_sub">Tap any category to apply directly</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" onclick="selectLoanTag('Commercial Vehicle Loan')">
+        <div class="service-card-header">
+          <div class="service-icon"><i class="fa-solid fa-truck"></i></div>
+          <h4 data-i18n="loan_comm_vehicle">Commercial Vehicle Loan</h4>
+        </div>
+        <p data-i18n="desc_comm">Financing for trucks, tippers, mini-trucks, and transport fleets with flexible repayment schemes.</p>
+      </div>
+
+      <div class="service-card" onclick="selectLoanTag('Construction Equipment Loan')">
+        <div class="service-card-header">
+          <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+          <h4 data-i18n="loan_const_equip">Construction Equipment Loan</h4>
+        </div>
+        <p data-i18n="desc_const">Loans for JCBs, excavators, cranes, road rollers, and heavy infrastructure machinery.</p>
+      </div>
+
+      <div class="service-card" onclick="selectLoanTag('Tractor Loan')">
+        <div class="service-card-header">
+          <div class="service-icon"><i class="fa-solid fa-tractor"></i></div>
+          <h4 data-i18n="loan_tractor">Tractor Loan</h4>
+        </div>
+        <p data-i18n="desc_tractor">Empowering farmers with fast financing for new & used agricultural tractors and harvesters.</p>
+      </div>
+
+      <div class="service-card" onclick="selectLoanTag('Gold Loan')">
+        <div class="service-card-header">
+          <div class="service-icon"><i class="fa-solid fa-coins"></i></div>
+          <h4 data-i18n="loan_gold">Gold Loan</h4>
+        </div>
+        <p data-i18n="desc_gold">Instant liquidity against gold ornaments with minimal paperwork and secure storage.</p>
+      </div>
+
+      <div class="service-card" onclick="selectLoanTag('Home Loan')">
+        <div class="service-card-header">
+          <div class="service-icon"><i class="fa-solid fa-house"></i></div>
+          <h4 data-i18n="loan_home">Home Loan</h4>
+        </div>
+        <p data-i18n="desc_home">Affordable home purchase, construction, and renovation loans with low interest rates.</p>
+      </div>
+
+      <div class="service-card" onclick="selectLoanTag('Business Loan for Doctor')">
+        <div class="service-card-header">
+          <div class="service-icon"><i class="fa-solid fa-user-doctor"></i></div>
+          <h4 data-i18n="loan_doc_business">Business Loan for Doctor</h4>
+        </div>
+        <p data-i18n="desc_doc">Special customized funding for clinic setup, hospital medical equipment, and healthcare expansions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator & WhatsApp Application Section -->
   <div class="container">
     
     <!-- Easy EMI Calculator Card -->
@@ -524,7 +768,6 @@
         <span data-i18n="calc_title">Quick EMI Calculator</span>
       </div>
 
-      <!-- Preset Quick Selection Chips -->
       <div class="quick-chips">
         <button type="button" class="chip active" onclick="setPreset(200000)">₹2 Lakh</button>
         <button type="button" class="chip" onclick="setPreset(500000)">₹5 Lakh</button>
@@ -587,7 +830,6 @@
         <div class="form-group">
           <label data-i18n="label_loan_type">Select Loan Category</label>
           <select id="loanTypeSelect" required>
-            <option value="Personal Loan">Personal Loan</option>
             <option value="Commercial Vehicle Loan">Commercial Vehicle Loan</option>
             <option value="Used Car Loan">Used Car Loan</option>
             <option value="Business Loan for Doctor">Business Loan for Doctor</option>
@@ -595,6 +837,7 @@
             <option value="Gold Loan">Gold Loan</option>
             <option value="Home Loan">Home Loan</option>
             <option value="Tractor Loan">Tractor Loan</option>
+            <option value="Personal Loan">Personal Loan</option>
             <option value="Loan Against Property">Loan Against Property</option>
             <option value="Car Loan">Car Loan</option>
             <option value="Business Loan">Business Loan</option>
@@ -615,6 +858,43 @@
     </div>
 
   </div>
+
+  <!-- Office & Location Section -->
+  <section class="location-wrapper">
+    <div class="location-card">
+      <div class="location-details">
+        <span class="location-badge" data-i18n="loc_badge">VISIT OUR BRANCH</span>
+        <h4 data-i18n="loc_heading">W/S Small Finance Office</h4>
+        <div class="location-info-row">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong data-i18n="loc_city">Satna, Madhya Pradesh</strong>
+            <p>Plus Code: HRG8+FHJ Satna, MP, India</p>
+            <p>Coordinates: 24°34'34.4"N 80°48'59.1"E</p>
+          </div>
+        </div>
+        <div class="location-info-row">
+          <i class="fa-regular fa-clock"></i>
+          <div>
+            <strong data-i18n="loc_hours_title">Working Hours</strong>
+            <p data-i18n="loc_hours">Mon – Sat: 10:00 AM – 7:00 PM</p>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=24.576222,80.816417" target="_blank" class="btn-map-directions">
+          <i class="fa-solid fa-diamond-turn-right"></i>
+          <span data-i18n="loc_get_directions">Open Directions in Google Maps</span>
+        </a>
+      </div>
+      <div class="map-frame">
+        <iframe 
+          title="Office Location Map"
+          src="https://maps.google.com/maps?q=24.576222,80.816417&z=15&output=embed" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
 
   <!-- Direct Contacts Bar -->
   <div class="direct-contacts">
@@ -654,14 +934,14 @@
       <i class="fa-solid fa-phone"></i>
     </a>
   </div>
-     <!-- Footer -->
+
+  <!-- Footer -->
   <footer>
-    <p>© 2026 W/S Small Finance and Services. Channel Partner of Finance Company. All rights reserved.</p>
+    <p>© 2026 W/S Small Finance and Services. Channel Partner of Finance Company. Satna, Madhya Pradesh.</p>
   </footer>
 
   <!-- Script for Language Switch, Easy EMI, and WhatsApp Routing -->
   <script>
-    // Bilingual Dictionary
     const translations = {
       en: {
         lang_btn: "हिन्दी",
@@ -669,7 +949,13 @@
         tagline_sub: "Channel Partner of Finance Company",
         badge_tagline: "SMALL SAVING..... SMART LOAN......",
         hero_title: "Smart Loan Solutions <span>Made Fast & Simple</span>",
-        hero_desc: "Compare, calculate, and apply for verified commercial, personal, gold, property, and vehicle loans with immediate advisory assistance.",
+        hero_desc: "Authorized Channel Partner providing quick approvals on commercial, equipment, agricultural, and personal financing across Madhya Pradesh.",
+        stat_loans: "Loan Categories",
+        stat_support: "Dedicated Advisory",
+        stat_process: "Minimal Documentation",
+        stat_location: "Local Branch Office",
+        services_heading: "Our Loan Portfolios",
+        services_sub: "Tap any category to apply directly",
         loan_comm_vehicle: "Commercial Vehicle Loan",
         loan_used_car: "Used Car Loan",
         loan_doc_business: "Business Loan for Doctor",
@@ -682,6 +968,12 @@
         loan_car: "Car Loan",
         loan_business: "Business Loan",
         loan_working_capital: "Working Capital Loan",
+        desc_comm: "Financing for trucks, tippers, mini-trucks, and transport fleets with flexible repayment schemes.",
+        desc_const: "Loans for JCBs, excavators, cranes, road rollers, and heavy infrastructure machinery.",
+        desc_tractor: "Empowering farmers with fast financing for new & used agricultural tractors and harvesters.",
+        desc_gold: "Instant liquidity against gold ornaments with minimal paperwork and secure storage.",
+        desc_home: "Affordable home purchase, construction, and renovation loans with low interest rates.",
+        desc_doc: "Special customized funding for clinic setup, hospital medical equipment, and healthcare expansions.",
         calc_title: "Quick EMI Calculator",
         calc_amt_label: "Loan Amount",
         calc_rate_label: "Interest Rate (% per year)",
@@ -695,6 +987,12 @@
         label_loan_type: "Select Loan Category",
         label_amount: "Approximate Loan Amount (₹)",
         btn_submit_wa: "Send Details to Waseem on WhatsApp",
+        loc_badge: "VISIT OUR BRANCH",
+        loc_heading: "W/S Small Finance Office",
+        loc_city: "Satna, Madhya Pradesh",
+        loc_hours_title: "Working Hours",
+        loc_hours: "Mon – Sat: 10:00 AM – 7:00 PM",
+        loc_get_directions: "Open Directions in Google Maps",
         officer_waseem: "Advisor (Waseem)",
         officer_anshul: "Advisor (Anshul)",
         official_email: "Official Email"
@@ -705,7 +1003,13 @@
         tagline_sub: "चैनल पार्टनर ऑफ फाइनेंस कंपनी",
         badge_tagline: "छोटी बचत..... स्मार्ट लोन......",
         hero_title: "स्मार्ट लोन सेवाएं <span>आसान और तेज़</span>",
-        hero_desc: "कमर्शियल वाहन, पर्सनल, गोल्ड, होम लोन और बिजनेस लोन के लिए तुरंत आवेदन करें और सीधी सहायता प्राप्त करें।",
+        hero_desc: "मध्य प्रदेश में कमर्शियल, कृषि, वाहन एवं व्यक्तिगत ऋण के लिए अधिकृत चैनल पार्टनर द्वारा तुरंत स्वीकृति।",
+        stat_loans: "ऋण श्रेणियां",
+        stat_support: "व्यक्तिगत सहायता",
+        stat_process: "न्यूनतम दस्तावेज",
+        stat_location: "स्थानीय शाखा कार्यालय",
+        services_heading: "हमारी ऋण सेवाएं",
+        services_sub: "सीधे आवेदन करने के लिए किसी भी विकल्प को चुनें",
         loan_comm_vehicle: "कमर्शियल वाहन लोन",
         loan_used_car: "पुरानी कार लोन",
         loan_doc_business: "डॉक्टर बिजनेस लोन",
@@ -718,6 +1022,12 @@
         loan_car: "कार लोन",
         loan_business: "बिजनेस लोन",
         loan_working_capital: "वर्किंग कैपिटल लोन",
+        desc_comm: "ट्रक, टिपर और मिनी ट्रकों के लिए आसान किस्तों और न्यूनतम ब्याज पर लोन सुविधा।",
+        desc_const: "जेसीबी, एक्सकेवेटर, क्रेन एवं सड़क निर्माण मशीनों के लिए विशेष फाइनेंसिंग।",
+        desc_tractor: "किसानों के लिए नए व पुराने ट्रैक्टरों एवं कृषि यंत्रों हेतु आसान लोन।",
+        desc_gold: "सोने के आभूषणों पर न्यूनतम कागजी कार्रवाई और सुरक्षित लॉकर के साथ तत्काल कैश।",
+        desc_home: "घर बनाने, खरीदने अथवा नवीनीकरण के लिए आकर्षक ब्याज दरों पर आवास ऋण।",
+        desc_doc: "डॉक्टरों के क्लिनिक विस्तार और आधुनिक चिकित्सा उपकरणों के लिए विशेष लोन।",
         calc_title: "आसान EMI कैलकुलेटर",
         calc_amt_label: "लोन की राशि",
         calc_rate_label: "ब्याज दर (% प्रति वर्ष)",
@@ -731,6 +1041,12 @@
         label_loan_type: "लोन का प्रकार चुनें",
         label_amount: "आवश्यक राशि (₹)",
         btn_submit_wa: "वसीम को व्हाट्सएप पर विवरण भेजें",
+        loc_badge: "हमारी शाखा में आएं",
+        loc_heading: "W/S स्मॉल फाइनेंस ऑफिस",
+        loc_city: "सतना, मध्य प्रदेश",
+        loc_hours_title: "कार्य समय",
+        loc_hours: "सोम – शनि: सुबह 10:00 से शाम 7:00 तक",
+        loc_get_directions: "गूगल मैप्स पर रास्ता देखें",
         officer_waseem: "सलाहकार (वसीम)",
         officer_anshul: "सलाहकार (अंशुल)",
         official_email: "आधिकारिक ईमेल"
@@ -752,7 +1068,6 @@
       calculateEMI();
     }
 
-    // Floating Tag Click
     function selectLoanTag(loanName) {
       const select = document.getElementById('loanTypeSelect');
       for (let i = 0; i < select.options.length; i++) {
@@ -764,7 +1079,6 @@
       document.getElementById('applySection').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Easy Preset Chips
     function setPreset(val) {
       document.getElementById('amountSlider').value = val;
       document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
@@ -772,7 +1086,6 @@
       calculateEMI();
     }
 
-    // Instant EMI Calculator
     function calculateEMI() {
       const P = parseFloat(document.getElementById('amountSlider').value);
       const rAnnual = parseFloat(document.getElementById('rateSlider').value);
@@ -784,7 +1097,6 @@
       document.getElementById('rateDisplay').innerText = rAnnual.toFixed(1) + " %";
       document.getElementById('tenureDisplay').innerText = `${years} ${currentLang === 'hi' ? 'वर्ष' : 'Years'} (${n} Mo)`;
 
-      // Standard EMI Formula: [P x r x (1+r)^n]/[(1+r)^n-1]
       const emi = Math.round((P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
       const totalPayment = emi * n;
       const totalInterest = totalPayment - P;
@@ -794,7 +1106,6 @@
       document.getElementById('totalPayable').innerText = "₹ " + totalPayment.toLocaleString('en-IN');
     }
 
-    // Direct WhatsApp Submission to Waseem (+91 9981829383)
     function sendToWhatsApp(e) {
       e.preventDefault();
       const name = document.getElementById('custName').value.trim();
@@ -815,10 +1126,8 @@
       window.open(waUrl, '_blank');
     }
 
-    // Run Initial Calculation on Load
     calculateEMI();
   </script>
 </body>
-    </html>
-
-  
+          </html>
+          
